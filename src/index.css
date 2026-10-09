@@ -36,6 +36,62 @@ main {
   overflow: hidden;
 }
 
+/* ---------- Boot / loading screen ---------- */
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.boot-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.boot-logo {
+  width: 96px;
+  height: auto;
+}
+
+.boot-progress {
+  width: 160px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+.boot-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #ffffff;
+  border-radius: 2px;
+  animation: boot-fill 5s linear forwards;
+}
+
+@keyframes boot-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.boot-screen.boot-fade {
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* ---------- Navbar ---------- */
 #navbar {
   position: relative;

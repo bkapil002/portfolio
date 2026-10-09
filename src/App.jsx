@@ -1,5 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BootScreen from "./components/BootScreen";
 import Navbar from "./components/Navbar";
 import Welcome from "./components/Welcome";
 import Dock from "./components/Dock";
@@ -17,6 +18,7 @@ import ImgFile from "./components/ImgFile";
 
 const App = () => (
   <main>
+    <BootScreen />
     <Navbar />
     <Welcome />
     <Dock />
