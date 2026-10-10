@@ -92,7 +92,7 @@ const projects = [
   {
     id: 1,
     name: "Project One",
-    icon: "📦",
+    icon: "/images/folder.png",
     kind: "folder",
     position: "top-52 left-10",
     windowPosition: "top-20 left-20",
@@ -133,7 +133,7 @@ const projects = [
   {
     id: 2,
     name: "Project Two",
-    icon: "🧠",
+    icon: "/images/folder.png",
     kind: "folder",
     position: "top-52 left-40",
     windowPosition: "top-24 left-24",
@@ -173,7 +173,7 @@ const projects = [
   {
     id: 3,
     name: "Project Three",
-    icon: "🍳",
+    icon: "/images/folder.png",
     kind: "folder",
     position: "top-72 left-10",
     windowPosition: "top-28 left-28",
@@ -212,18 +212,71 @@ const projects = [
   },
 ];
 
+const companyFiles = [
+  {
+    id: 1,
+    name: "findrehabcentres",
+    icon: "/company/FRC.png",
+    kind: "file",
+    fileType: "img",
+    image: "/company/FRC.png",
+  },
+  {
+    id: 2,
+    name: "samzara",
+    icon: "/company/LOGO-BVnv3rUI.png",
+    kind: "file",
+    fileType: "img",
+    image: "/company/LOGO-BVnv3rUI.png",
+  },
+  {
+    id: 3,
+    name: "evolueracademy",
+    icon: "/company/logo-DZx-Iee_.png",
+    kind: "file",
+    fileType: "img",
+    image: "/company/logo-DZx-Iee_.png",
+  },
+  {
+    id: 4,
+    name: "orb",
+    icon: "/company/red.svg",
+    kind: "file",
+    fileType: "img",
+    image: "/company/red.svg",
+  },
+  {
+    id: 5,
+    name: "sentrimeshconsulting",
+    icon: "/company/sentrimesh-whitescale.svg",
+    kind: "file",
+    fileType: "img",
+    image: "/company/sentrimesh-whitescale.svg",
+  },
+];
+
+const companyFolder = {
+  id: 4,
+  name: "Company",
+  icon: "/images/brandingrain.png",
+  kind: "folder",
+  position: "top-72 left-40",
+  windowPosition: "top-32 left-20",
+  children: companyFiles,
+};
+
 export const locations = {
   work: {
     id: 1,
     name: "Work",
-    icon: "💼",
+    icon: "/images/work.svg",
     kind: "folder",
-    children: projects,
+    children: [...projects, companyFolder],
   },
   about: {
     id: 2,
     name: "About me",
-    icon: "🙋",
+    icon: "/images/info.svg",
     kind: "file",
     fileType: "txt",
     subtitle: "Meet the Developer Behind the Code",
@@ -237,7 +290,7 @@ export const locations = {
   resume: {
     id: 3,
     name: "Resume",
-    icon: "📄",
+    icon: "/images/file1.svg",
     kind: "file",
     fileType: "pdf",
     href: "/resume.pdf",
@@ -245,7 +298,7 @@ export const locations = {
   trash: {
     id: 4,
     name: "Trash",
-    icon: "🗑️",
+    icon: "/images/trash1.svg",
     kind: "folder",
     children: [
       {

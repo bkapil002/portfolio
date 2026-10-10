@@ -7,11 +7,7 @@ const useLocationStore = create((set) => ({
   activeLocation: DEFAULT_LOCATION,
   setActiveLocation: (location = null) =>
     set((state) => {
-      if (
-        state.activeLocation &&
-        location &&
-        state.activeLocation.id === location.id
-      ) {
+      if (location && state.activeLocation === location) {
         return { activeLocation: null };
       }
       return { activeLocation: location };

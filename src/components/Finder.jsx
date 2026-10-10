@@ -46,11 +46,21 @@ const Finder = () => {
                     key={item.id}
                     type="button"
                     className={
-                      activeLocation?.id === item.id ? "active" : ""
+                      activeLocation === item ? "active" : ""
                     }
                     onClick={() => setActiveLocation(item)}
                   >
-                    <span>{item.icon}</span>
+                    {typeof item.icon === "string" &&
+                    item.icon.startsWith("/") ? (
+                      <img
+                        src={item.icon}
+                        alt=""
+                        draggable="false"
+                        className="w-4 h-4"
+                      />
+                    ) : (
+                      <span>{item.icon}</span>
+                    )}
                     <span>{item.name}</span>
                   </button>
                 ))}

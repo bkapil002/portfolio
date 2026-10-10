@@ -357,6 +357,11 @@ main {
   height: auto;
 }
 
+.folder img.folder-icon {
+  height: 3rem;
+  object-fit: contain;
+}
+
 .folder .folder-label {
   font-size: 0.75rem;
   color: #ffffff;
@@ -389,6 +394,11 @@ main {
   width: 2.75rem;
   height: auto;
   transition: transform 0.15s;
+}
+
+.finder-item img.finder-icon {
+  height: 2.75rem;
+  object-fit: contain;
 }
 
 .finder-item:hover .finder-icon {
