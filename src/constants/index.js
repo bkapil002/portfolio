@@ -405,7 +405,7 @@ const companyFiles = [
 
 const companyFolder = {
   id: 4,
-  name: "Company",
+  name: "brandingrain",
   icon: "/images/brandingrain.png",
   kind: "folder",
   position: "top-72 left-40",
