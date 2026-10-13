@@ -1,16 +1,24 @@
 import { create } from "zustand";
 
+const makeWindow = () => ({
+  isOpen: false,
+  isMinimized: false,
+  isMaximized: false,
+  zIndex: 1000,
+  data: null,
+});
+
 const initialWindows = {
-  finder: { isOpen: false, zIndex: 1000, data: null },
-  contact: { isOpen: false, zIndex: 1000, data: null },
-  resume: { isOpen: false, zIndex: 1000, data: null },
-  safari: { isOpen: false, zIndex: 1000, data: null },
-  photos: { isOpen: false, zIndex: 1000, data: null },
-  terminal: { isOpen: false, zIndex: 1000, data: null },
-  txtfile: { isOpen: false, zIndex: 1000, data: null },
-  imgfile: { isOpen: false, zIndex: 1000, data: null },
-  snake: { isOpen: false, zIndex: 1000, data: null },
-  tictactoe: { isOpen: false, zIndex: 1000, data: null },
+  finder: makeWindow(),
+  contact: makeWindow(),
+  resume: makeWindow(),
+  safari: makeWindow(),
+  photos: makeWindow(),
+  terminal: makeWindow(),
+  txtfile: makeWindow(),
+  imgfile: makeWindow(),
+  snake: makeWindow(),
+  tictactoe: makeWindow(),
 };
 
 const useWindowStore = create((set) => ({
@@ -22,6 +30,8 @@ const useWindowStore = create((set) => ({
         [key]: {
           ...state.windows[key],
           isOpen: true,
+          isMinimized: false,
+          isMaximized: false,
           zIndex: Date.now(),
           data,
         },
@@ -31,9 +41,47 @@ const useWindowStore = create((set) => ({
     set((state) => ({
       windows: {
         ...state.windows,
-        [key]: { ...state.windows[key], isOpen: false },
+        [key]: {
+          ...state.windows[key],
+          isOpen: false,
+          isMinimized: false,
+          isMaximized: false,
+        },
       },
     })),
+  minimizeWindow: (key) =>
+    set((state) => ({
+      windows: {
+        ...state.windows,
+        [key]: { ...state.windows[key], isMinimized: true },
+      },
+    })),
+  restoreWindow: (key) =>
+    set((state) => ({
+      windows: {
+        ...state.windows,
+        [key]: {
+          ...state.windows[key],
+          isMinimized: false,
+          zIndex: Date.now(),
+        },
+      },
+    })),
+  toggleMaximize: (key) =>
+    set((state) => {
+      const win = state.windows[key];
+      return {
+        windows: {
+          ...state.windows,
+          [key]: {
+            ...win,
+            isMinimized: false,
+            isMaximized: !win.isMaximized,
+            zIndex: Date.now(),
+          },
+        },
+      };
+    }),
   focusWindow: (key) =>
     set((state) => ({
       windows: {

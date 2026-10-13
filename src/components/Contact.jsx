@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaInstagram } from "react-icons/fa6";
+import { FaEnvelope, FaPhone } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import { socials } from "../constants";
 import useWindowStore from "../store/window";
@@ -8,9 +8,16 @@ import WindowControls from "./WindowControls";
 
 const iconSrc = {
   github: "/icons/github.svg",
-  instagram: null,
-  twitter: "/icons/twitter.svg",
   linkedin: "/icons/linkedin.svg",
+};
+
+const renderIcon = (icon) => {
+  if (iconSrc[icon]) {
+    return <img src={iconSrc[icon]} alt="" className="w-5 h-5" />;
+  }
+  if (icon === "email") return <FaEnvelope size={20} />;
+  if (icon === "phone") return <FaPhone size={18} />;
+  return null;
 };
 
 const Contact = () => {
@@ -51,12 +58,20 @@ const Contact = () => {
           </div>
         </div>
 
-        <a
-          href="mailto:you@example.com"
-          className="block text-center text-blue-600 font-semibold mb-6 hover:underline"
-        >
-          you@example.com
-        </a>
+        <div className="flex flex-col items-center gap-1 mb-6">
+          <a
+            href="mailto:kapilbrahm@gmail.com"
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            kapilbrahm@gmail.com
+          </a>
+          <a
+            href="tel:9877707118"
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            +91 98777 07118
+          </a>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-3 mb-6">
           <div className="grid grid-cols-2 gap-3">
@@ -98,15 +113,7 @@ const Contact = () => {
                 className="contact-social"
                 style={{ backgroundColor: social.bg }}
               >
-                {iconSrc[social.icon] ? (
-                  <img
-                    src={iconSrc[social.icon]}
-                    alt={social.text}
-                    className="w-5 h-5"
-                  />
-                ) : (
-                  <FaInstagram size={22} />
-                )}
+                {renderIcon(social.icon)}
                 <span>{social.text}</span>
               </a>
             </li>

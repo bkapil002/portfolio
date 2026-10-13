@@ -13,9 +13,9 @@ const Terminal = () => (
         <span className="w-12" />
       </div>
 
-      <div className="p-5 font-roboto text-sm">
+      <div className="p-5 pb-6 font-roboto text-sm max-h-[calc(80vh-3.5rem)] overflow-y-auto">
         <p className="text-[#00a154] mb-4">
-          @yourname % show tech stack
+          @brahmkapila % show tech stack
         </p>
 
         <div className="grid grid-cols-[140px_1fr] pb-2 text-gray-400 text-xs uppercase tracking-wide">

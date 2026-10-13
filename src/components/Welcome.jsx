@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const subtitle = "Hey, I'm Your Name! Welcome to my";
+const subtitle = "Hey, I'm Brahm Kapila! Welcome to my";
 const title = "Portfolio";
 const footer = "Explore it like a Mac.";
 

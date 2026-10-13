@@ -22,7 +22,7 @@ const Navbar = () => {
           draggable="false"
         />
         <span className="font-bold text-sm sm:text-base">
-          Your Name&apos;s Portfolio
+          Brahm Kapila&apos;s Portfolio
         </span>
         <ul id="nav-links" className="ml-4 hidden sm:flex">
           {navLinks.map((link) => (

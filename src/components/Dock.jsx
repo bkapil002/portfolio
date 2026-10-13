@@ -10,6 +10,7 @@ const Dock = () => {
   const iconsRef = useRef([]);
   const openWindow = useWindowStore((s) => s.openWindow);
   const closeWindow = useWindowStore((s) => s.closeWindow);
+  const restoreWindow = useWindowStore((s) => s.restoreWindow);
   const windows = useWindowStore((s) => s.windows);
   const setActiveLocation = useLocationStore((s) => s.setActiveLocation);
 
@@ -54,9 +55,15 @@ const Dock = () => {
   const handleClick = (app) => {
     if (!app.canOpen) return;
 
+    const win = windows[app.id];
+
+    if (win.isOpen && win.isMinimized) {
+      restoreWindow(app.id);
+      return;
+    }
+
     if (app.id === "finder" || app.id === "photos") {
-      const isOpen = windows[app.id].isOpen;
-      if (isOpen) closeWindow(app.id);
+      if (win.isOpen) closeWindow(app.id);
       else {
         if (app.id === "finder") setActiveLocation(locations.work);
         openWindow(app.id);
@@ -64,7 +71,7 @@ const Dock = () => {
       return;
     }
 
-    if (windows[app.id].isOpen) closeWindow(app.id);
+    if (win.isOpen) closeWindow(app.id);
     else openWindow(app.id);
   };
 

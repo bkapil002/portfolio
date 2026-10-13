@@ -1,4 +1,4 @@
-import { IoDownloadOutline, IoDocumentTextOutline } from "react-icons/io5";
+import { IoDownloadOutline } from "react-icons/io5";
 import useWindowStore from "../store/window";
 import WindowWrapper from "../hoc/WindowWrapper";
 import WindowControls from "./WindowControls";
@@ -24,20 +24,12 @@ const Resume = () => {
         </a>
       </div>
 
-      <div className="w-[42rem] max-w-[85vw] h-[70vh] bg-gray-100 flex flex-col items-center justify-center gap-4 p-8">
-        <IoDocumentTextOutline size={72} className="text-gray-300" />
-        <p className="text-gray-500 text-sm text-center">
-          Drop your <span className="font-semibold">resume.pdf</span> into the{" "}
-          <code className="bg-gray-200 px-1 rounded">public/</code> folder and
-          it will be served here.
-        </p>
-        <a
-          href={href}
-          download
-          className="bg-gray-900 text-white text-sm font-semibold rounded-md px-5 py-2 hover:bg-gray-700"
-        >
-          Download Resume
-        </a>
+      <div className="w-[42rem] max-w-[85vw] h-[70vh] bg-gray-100">
+        <iframe
+          src={href}
+          title="Resume"
+          className="w-full h-full border-0"
+        />
       </div>
     </WindowWrapper>
   );

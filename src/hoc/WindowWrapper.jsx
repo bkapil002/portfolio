@@ -7,12 +7,14 @@ gsap.registerPlugin(Draggable);
 
 const WindowWrapper = ({ children, windowKey, className = "" }) => {
   const isOpen = useWindowStore((s) => s.windows[windowKey].isOpen);
+  const isMinimized = useWindowStore((s) => s.windows[windowKey].isMinimized);
+  const isMaximized = useWindowStore((s) => s.windows[windowKey].isMaximized);
   const zIndex = useWindowStore((s) => s.windows[windowKey].zIndex);
   const focusWindow = useWindowStore((s) => s.focusWindow);
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!isOpen || !ref.current) return;
+    if (!isOpen || isMinimized || !ref.current) return;
 
     gsap.fromTo(
       ref.current,
@@ -25,22 +27,29 @@ const WindowWrapper = ({ children, windowKey, className = "" }) => {
         ease: "power3.out",
       },
     );
+  }, [isOpen, isMinimized, windowKey]);
+
+  useEffect(() => {
+    if (!isOpen || isMinimized || isMaximized || !ref.current) return;
 
     const [drag] = Draggable.create(ref.current, {
       onPress: () => focusWindow(windowKey),
     });
 
-    return () => drag.kill();
-  }, [isOpen, focusWindow, windowKey]);
+    return () => {
+      drag.kill();
+      gsap.set(ref.current, { clearProps: "transform" });
+    };
+  }, [isOpen, isMinimized, isMaximized, focusWindow, windowKey]);
 
-  if (!isOpen) return null;
+  if (!isOpen || isMinimized) return null;
 
   return (
     <section
       id={windowKey}
       ref={ref}
       style={{ zIndex }}
-      className={`window ${className}`}
+      className={`window ${className} ${isMaximized ? "maximized" : ""}`}
       onMouseDown={() => focusWindow(windowKey)}
     >
       {children}
