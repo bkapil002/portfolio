@@ -15,13 +15,18 @@ const Finder = () => {
       setActiveLocation(item);
       return;
     }
-    if (item.fileType === "txt") openWindow("txtfile", item);
+    if (item.fileType === "txt") openWindow("notepad", item);
     else if (item.fileType === "img") openWindow("imgfile", item);
     else if (item.fileType === "pdf") openWindow("resume", item);
     else if (item.href) window.open(item.href, "_blank");
   };
 
   const children = activeLocation?.children ?? [];
+
+  const handleSidebarSelect = (item) => {
+    if (item.kind !== "folder" && activeLocation === item) return;
+    setActiveLocation(item);
+  };
 
   return (
     <WindowWrapper windowKey="finder" className="flex flex-col">
@@ -48,7 +53,7 @@ const Finder = () => {
                     className={
                       activeLocation === item ? "active" : ""
                     }
-                    onClick={() => setActiveLocation(item)}
+                    onClick={() => handleSidebarSelect(item)}
                   >
                     {typeof item.icon === "string" &&
                     item.icon.startsWith("/") ? (
@@ -90,7 +95,9 @@ const Finder = () => {
                 </button>
               ))}
               {children.length === 0 && (
-                <p className="text-sm text-gray-400">This folder is empty.</p>
+                <p className="text-sm text-gray-400">
+                  This folder is empty.
+                </p>
               )}
             </div>
           </div>

@@ -9,11 +9,11 @@ import Finder from "./components/Finder";
 import Terminal from "./components/Terminal";
 import Safari from "./components/Safari";
 import Contact from "./components/Contact";
-import Photos from "./components/Photos";
 import Resume from "./components/Resume";
 import Snake from "./components/Snake";
 import TicTacToe from "./components/TicTacToe";
 import TxtFile from "./components/TxtFile";
+import Notepad from "./components/Notepad";
 import ImgFile from "./components/ImgFile";
 
 const App = () => (
@@ -27,11 +27,11 @@ const App = () => (
     <Terminal />
     <Safari />
     <Contact />
-    <Photos />
     <Resume />
     <Snake />
     <TicTacToe />
     <TxtFile />
+    <Notepad />
     <ImgFile />
     <ToastContainer position="top-right" theme="light" closeOnClick />
   </main>

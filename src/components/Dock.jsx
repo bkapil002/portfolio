@@ -62,7 +62,7 @@ const Dock = () => {
       return;
     }
 
-    if (app.id === "finder" || app.id === "photos") {
+    if (app.id === "finder") {
       if (win.isOpen) closeWindow(app.id);
       else {
         if (app.id === "finder") setActiveLocation(locations.work);

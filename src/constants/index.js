@@ -9,7 +9,6 @@ export const dockApps = [
   { id: "safari", name: "Articles", icon: "/images/safari.png", canOpen: true },
   { id: "snake", name: "Snake", icon: "/images/snake.png", canOpen: true },
   { id: "tictactoe", name: "Tic Tac Toe", icon: "/images/tictactoe.png", canOpen: true },
-  { id: "photos", name: "Gallery", icon: "/images/photos.png", canOpen: true },
   { id: "contact", name: "Contact", icon: "/images/contact.png", canOpen: true },
   { id: "terminal", name: "Skills", icon: "/images/terminal.png", canOpen: true },
   { id: "trash", name: "Archive", icon: "/images/trash.png", canOpen: false },
@@ -179,21 +178,6 @@ export const socials = [
     bg: "#ff866b",
     link: "tel:9877707118",
   },
-];
-
-export const photoCategories = [
-  { id: "library", name: "Library" },
-  { id: "memories", name: "Memories" },
-  { id: "places", name: "Places" },
-  { id: "people", name: "People" },
-  { id: "favorites", name: "Favorites" },
-];
-
-export const galleryImages = [
-  "https://picsum.photos/seed/g1/600/600",
-  "https://picsum.photos/seed/g2/600/600",
-  "https://picsum.photos/seed/g3/600/600",
-  "https://picsum.photos/seed/g4/600/600",
 ];
 
 const projects = [
@@ -425,23 +409,40 @@ export const locations = {
     id: 2,
     name: "About me",
     icon: "/images/info.svg",
-    kind: "file",
-    fileType: "txt",
-    subtitle: "Meet the Developer Behind the Code",
-    description: [
-      "Hey! I'm Brahm Kapila, a web developer who enjoys building sleek, interactive websites that actually work well.",
-      "I specialize in JavaScript, React, and Next.js — and I love making things feel smooth, fast, and a little delightful.",
-      "I'm big on clean UI, good UX, and writing code that doesn't need a search party to debug.",
-      "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping coffee, or reading blogs I convinced myself I needed.",
+    kind: "folder",
+    children: [
+      {
+        id: 1,
+        name: "brahm kapil.txt",
+        icon: "📄",
+        kind: "file",
+        fileType: "txt",
+        subtitle: "The person behind the commits",
+        description: [
+          "Hi, I'm Brahm Kapila — a web developer who genuinely enjoys building things for the internet.",
+          "Most of my days are spent in React and Next.js, turning rough ideas (and occasionally messy Figma files) into interfaces that feel quick and easy to use. I care about the small stuff — the spacing between elements, how fast a page loads, that satisfying feeling when a button just works the way you expect it to.",
+          "I'm not the developer who can recite every algorithm off the top of my head. I'm the one who keeps asking, \"but does this actually make sense for the person using it?\" That one question has saved me and my teammates from shipping more than a few clever-but-useless features.",
+          "Away from the keyboard, I'm usually neck-deep in some random rabbit hole — fine-tuning my setup, reading something I stumbled on at 1AM, or trying to convince friends that the project I'm building really did need three extra weeks.",
+          "If you've got something you want to build, or you just feel like talking shop, reach out. I'm always up for a good conversation.",
+        ],
+      },
     ],
   },
   resume: {
     id: 3,
     name: "Resume",
     icon: "/images/file1.svg",
-    kind: "file",
-    fileType: "pdf",
-    href: "/resume.pdf",
+    kind: "folder",
+    children: [
+      {
+        id: 1,
+        name: "brahm kapil resume.pdf",
+        icon: "/images/file1.svg",
+        kind: "file",
+        fileType: "pdf",
+        href: "/resume.pdf",
+      },
+    ],
   },
   trash: {
     id: 4,
