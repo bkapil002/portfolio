@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="photoFrame" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e9eef6"/>
+    </linearGradient>
+    <linearGradient id="photoSky" x1="12" y1="16" x2="52" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7ec8ff"/>
+      <stop offset="0.55" stop-color="#4f9cf5"/>
+      <stop offset="1" stop-color="#2b6fd6"/>
+    </linearGradient>
+    <linearGradient id="photoHill" x1="18" y1="36" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3fd38a"/>
+      <stop offset="1" stop-color="#1d9e63"/>
+    </linearGradient>
+    <filter id="photoShadow" x="2" y="2" width="60" height="62" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0b1b33" flood-opacity="0.28"/>
+    </filter>
+    <clipPath id="photoClip">
+      <rect x="12" y="16" width="40" height="32" rx="4"/>
+    </clipPath>
+  </defs>
+  <g filter="url(#photoShadow)">
+    <rect x="6" y="6" width="52" height="52" rx="8" fill="url(#photoFrame)" stroke="#c6d1e0" stroke-width="1.5"/>
+    <rect x="12" y="16" width="40" height="32" rx="4" fill="url(#photoSky)"/>
+    <g clip-path="url(#photoClip)">
+      <circle cx="43" cy="25" r="4.5" fill="#fff3b0"/>
+      <path d="M12 44.5 24.5 32l7.5 7.8 5.8-5.3L52 44.8V48H12v-3.5Z" fill="url(#photoHill)"/>
+      <path d="M12 48 22 38l7.5 7 7-6 15.5 9v4H12v-4Z" fill="#128a55" opacity="0.55"/>
+    </g>
+    <rect x="12" y="16" width="40" height="32" rx="4" stroke="#1f5fae" stroke-opacity="0.35"/>
+  </g>
+</svg>

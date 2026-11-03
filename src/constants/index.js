@@ -192,7 +192,7 @@ const projects = [
   {
     id: 1,
     name: "pdf-to-audio",
-    icon: "/images/folder.png",
+    icon: "/icons/voxa.svg",
     kind: "folder",
     position: "top-52 left-10",
     windowPosition: "top-28 left-28",
@@ -200,7 +200,7 @@ const projects = [
       {
         id: 1,
         name: "Overview.txt",
-        icon: "📄",
+        icon: "/icons/doc.svg",
         kind: "file",
         fileType: "txt",
         subtitle: "Turn any PDF into a downloadable audiobook",
@@ -217,7 +217,7 @@ const projects = [
       {
         id: 2,
         name: "Preview.jpeg",
-        icon: "🖼️",
+        icon: "/icons/photo.svg",
         kind: "file",
         fileType: "img",
         image: "/images/Preview.jpeg",
@@ -225,10 +225,18 @@ const projects = [
       {
         id: 3,
         name: "Visit Site",
-        icon: "🔗",
+        icon: "/icons/link.svg",
         kind: "file",
         fileType: "link",
         href: "https://voice-studio-mu.vercel.app/",
+      },
+      {
+        id: 4,
+        name: "GitHub",
+        icon: "/icons/github-dark.svg",
+        kind: "file",
+        fileType: "link",
+        href: "https://github.com/bkapil002/pdf-to-audio",
       },
     ],
   },
@@ -379,25 +387,7 @@ export const locations = {
     name: "Trash",
     icon: "/images/trash1.svg",
     kind: "folder",
-    children: [
-      {
-        id: 1,
-        name: "old-portfolio.png",
-        icon: "🖼️",
-        kind: "file",
-        fileType: "img",
-        image: "https://picsum.photos/seed/old1/600/400",
-      },
-      {
-        id: 2,
-        name: "draft.txt",
-        icon: "📄",
-        kind: "file",
-        fileType: "txt",
-        subtitle: "Scratch notes",
-        description: ["Old ideas that never shipped."],
-      },
-    ],
+    children: [],
   },
   desktop: {
     id: 5,
