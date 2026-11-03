@@ -33,6 +33,7 @@ const WindowWrapper = ({ children, windowKey, className = "" }) => {
     if (!isOpen || isMinimized || isMaximized || !ref.current) return;
 
     const [drag] = Draggable.create(ref.current, {
+      dragClickables: false,
       onPress: () => focusWindow(windowKey),
     });
 

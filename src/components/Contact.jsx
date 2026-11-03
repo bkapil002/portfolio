@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import { socials } from "../constants";
-import useWindowStore from "../store/window";
 import WindowWrapper from "../hoc/WindowWrapper";
 import WindowControls from "./WindowControls";
 
@@ -22,17 +21,42 @@ const renderIcon = (icon) => {
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const openWindow = useWindowStore((s) => s.openWindow);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in all fields.");
       return;
     }
-    toast.success("Thanks! Your message has been sent.");
-    setForm({ name: "", email: "", message: "" });
-    openWindow("contact");
+
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (res.status === 404) {
+        throw new Error(
+          "The contact service isn't deployed yet. Email kapilbrahm@gmail.com instead.",
+        );
+      }
+      if (!res.ok) throw new Error(data.error || "Could not send your message.");
+
+      toast.success("Thanks! Your message has been sent.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast.error(
+        error.message === "Failed to fetch"
+          ? "Can't reach the contact service. Email kapilbrahm@gmail.com instead."
+          : error.message,
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -97,9 +121,10 @@ const Contact = () => {
           />
           <button
             type="submit"
-            className="w-full bg-gray-900 text-white text-sm font-semibold rounded-md py-2 hover:bg-gray-700"
+            disabled={sending}
+            className="w-full bg-gray-900 text-white text-sm font-semibold rounded-md py-2 hover:bg-gray-700 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Send Message
+            {sending ? "Sending..." : "Send Message"}
           </button>
         </form>
 

@@ -16,27 +16,42 @@ import TicTacToe from "./components/TicTacToe";
 import TxtFile from "./components/TxtFile";
 import Notepad from "./components/Notepad";
 import ImgFile from "./components/ImgFile";
+import Dashboard from "./components/Dashboard";
 
-const App = () => (
-  <main>
-    <BootScreen />
-    <Navbar />
-    <Welcome />
-    <Dock />
-    <Home />
-    <Finder />
-    <Terminal />
-    <Assistant />
-    <Safari />
-    <Contact />
-    <Resume />
-    <Snake />
-    <TicTacToe />
-    <TxtFile />
-    <Notepad />
-    <ImgFile />
-    <ToastContainer position="top-right" theme="light" closeOnClick />
-  </main>
-);
+const isDashboard =
+  window.location.pathname.replace(/\/+$/, "") === "/xyzdashboard";
+
+const App = () => {
+  if (isDashboard) {
+    return (
+      <>
+        <Dashboard />
+        <ToastContainer position="top-right" theme="light" closeOnClick />
+      </>
+    );
+  }
+
+  return (
+    <main>
+      <BootScreen />
+      <Navbar />
+      <Welcome />
+      <Dock />
+      <Home />
+      <Finder />
+      <Terminal />
+      <Assistant />
+      <Safari />
+      <Contact />
+      <Resume />
+      <Snake />
+      <TicTacToe />
+      <TxtFile />
+      <Notepad />
+      <ImgFile />
+      <ToastContainer position="top-right" theme="light" closeOnClick />
+    </main>
+  );
+};
 
 export default App;
