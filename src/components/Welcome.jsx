@@ -3,7 +3,6 @@ import gsap from "gsap";
 
 const subtitle = "Hey, I'm Brahm Kapila! Welcome to my";
 const title = "Portfolio";
-const footer = "Explore it like a Mac.";
 
 const splitChars = (text) =>
   text.split("").map((char, i) => ({ char, key: `${text}-${i}` }));
@@ -89,10 +88,6 @@ const Welcome = () => {
             </span>
           ))}
         </div>
-
-        <p className="font-georama text-2xl sm:text-3xl text-white/90">
-          {footer}
-        </p>
 
         <p className="small-screen">
           This portfolio is designed for desktop/tablet screens only.
