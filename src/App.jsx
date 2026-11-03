@@ -7,6 +7,7 @@ import Dock from "./components/Dock";
 import Home from "./components/Home";
 import Finder from "./components/Finder";
 import Terminal from "./components/Terminal";
+import Assistant from "./components/Assistant";
 import Safari from "./components/Safari";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
@@ -25,6 +26,7 @@ const App = () => (
     <Home />
     <Finder />
     <Terminal />
+    <Assistant />
     <Safari />
     <Contact />
     <Resume />

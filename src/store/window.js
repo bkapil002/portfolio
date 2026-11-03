@@ -14,6 +14,7 @@ const initialWindows = {
   resume: makeWindow(),
   safari: makeWindow(),
   terminal: makeWindow(),
+  assistant: makeWindow(),
   txtfile: makeWindow(),
   notepad: makeWindow(),
   imgfile: makeWindow(),

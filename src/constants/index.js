@@ -11,6 +11,7 @@ export const dockApps = [
   { id: "tictactoe", name: "Tic Tac Toe", icon: "/images/tictactoe.png", canOpen: true },
   { id: "contact", name: "Contact", icon: "/images/contact.png", canOpen: true },
   { id: "terminal", name: "Skills", icon: "/images/terminal.png", canOpen: true },
+  { id: "assistant", name: "Assistant", icon: "/icons/assistant.svg", canOpen: true },
   { id: "trash", name: "Archive", icon: "/images/trash.png", canOpen: false },
 ];
 
